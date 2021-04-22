@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Платрон - универсальная система приема платежей на сайте. Система электронных платежей для интернет магазинов. :: {{_title}}</title>
+  <link rel="stylesheet" media="all" href="/css/payment_params.css?asset_version={{asset_version}}">
+  <!--<link rel="stylesheet" media="all" href="/payment_params_templates/{{customization_merchant_id}}/css/your.css?asset_version={{asset_version}}" >-->
+  <!--ONLY_IN_FRAME-->
+  <link rel="stylesheet" media="all" href="/css/payment_params_iframe.css?asset_version={{asset_version}}">
+  <!--/ONLY_IN_FRAME-->
+
+  <script type="text/javascript" src="/js/jquery.js?asset_version={{asset_version}}"></script>
+  <script type="text/javascript" src="/js/jquery-ui.js?asset_version={{asset_version}}"></script>
+  <script type="text/javascript" src="/js/jquery.payment_form.js?asset_version={{asset_version}}"></script>
+  <script type="text/javascript" src="/js/header.js?asset_version={{asset_version}}"></script>
+
+</head>
+
+<body {{_onload}}>
+  <!--ANALYTICS-->
+  <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-123155951-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+  <!--/ANALYTICS-->
+
+  <div class="out out_ind">
+    <!--DELETE_IF_USE_IN_FRAME-->
+    <header class="header">
+      <div class="header_in">
+
+        <!--PAYMENT_CONTEXT-->
+        <div class="logos is_active">
+          <!--MERCHANT_LOGO-->
+          <img class="logo" src='/logos/{{merchant_logo}}' alt='{{MERCHANT_NAME}}'>
+          <!--/MERCHANT_LOGO-->
+        </div>
+        <!--/PAYMENT_CONTEXT-->
+
+        <div class="order">
+          <!--PAYMENT_CONTEXT-->
+          <div class="order_in js_header_order_info">
+            <div class="order_title">Заказ в магазине {{MERCHANT_NAME}}</div>
+            <div class="order_row">
+              <div class="order_left">
+                <div class="order_gray">Сумма заказа:</div>
+                <div class="order_price">{{amount}}
+                  <img src='/images/svg/currency/{{currency}}.svg' alt='{{currency}}'>
+                </div>
+              </div>
+              <div class="order_right">
+                <div class="order_gray">Описание заказа:</div>
+                <div class="order_text js_header_order_info_text">{{description}}</div>
+              </div>
+            </div>
+            <a href="#" class="order_more js_header_order_info_more">Подробнее</a>
+            <a href="#" class="order_close js_header_order_info_close">Закрыть</a>
+          </div>
+          <!--/PAYMENT_CONTEXT-->
+        </div>
+        <div class="logo_platron"></div>
+      </div>
+    </header>
+    <!--/DELETE_IF_USE_IN_FRAME-->
+    <div class="wrapper">
+      <div class="center center_mod">
+        <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('div#input_form').each(function () {
+                                $(this).payment_form({
+                                    'form_type': 'loader_form'
+                                });
+                            });
+                        });
+                    </script>
+
+        <h1 style="text-align: center;">Процесс оплаты</h1>
+        <noscript>
+          <h3 class="title turn_on_js">Для продолжения включите javascript</h3>
+        </noscript>
+        <div id="input_form">
+          <div id="info_by_idle_transaction">
+            <p>&nbsp;</p>
+            <p align="center">Дождитесь завершения операции. По окончанию вы будете перенаправлены на сайт магазина, где завершите процесс покупки.</p>
+            <p>&nbsp;</p>
+            <p id="spiner" align="center">
+              <img src="/images/spin.gif">
+            </p>
+          </div>
+          <div id="info_by_hold_transaction">
+            <p>&nbsp;</p>
+            <p align="center">Обработка платежа задерживается по неизвестным причинам, просим отслеживать статус платежа в личном кабинете магазина или обратиться в службу поддержки.</p>
+          </div>
+        </div>
+        <div class="c"></div>
+      </div>
+    </div>
+  </div>
+  <!--DELETE_IF_USE_IN_FRAME-->
+  <footer class="footer footer_ind">
+    <div class="footer_in">
+      <div class="footer_row">
+        <div class="footer_right">
+          <div class="support">
+            <div class="support_row">Служба поддержки:</div>
+            <div class="support_row">
+              <p>
+                <strong>+7 (495) 228-11-48</strong> (круглосуточно) <strong class="support_col">support@platron.ru</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer_row">
+        <div class="footer_right">
+          <ul class="security">
+            <li class="security_item">
+              <i class="ico">
+                <img src="/images/icons/comodo.png" alt="img">
+              </i>
+            </li>
+            <li class="security_item">
+              <i class="ico">
+                <img src="/images/icons/pci-dss.png" alt="img">
+              </i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/DELETE_IF_USE_IN_FRAME-->
+</body>
+
+</html>
